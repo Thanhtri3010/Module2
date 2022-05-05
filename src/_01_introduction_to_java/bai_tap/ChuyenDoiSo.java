@@ -4,96 +4,136 @@ import java.util.Scanner;
 
 public class ChuyenDoiSo {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        while (1 > 0) {
-            System.out.print("nhập số cần đọc (0-999): ");
-            String input = scanner.nextLine();
-            while (!(input.matches("^[1-9][0-9]?[0-9]$") ||
-                    input.matches("^[0-9]$"))) {
-                System.out.println("không hợp lệ!");
-                System.out.print("nhập số cần đọc (0-999): ");
-                input = scanner.nextLine();
-            }
-            String[] inputRay = input.split("");
-            switch (inputRay.length - 1) {
-                case 1:
-                    if (inputRay[1].equals("0")) {
-                        System.out.println("zero");
-                    } else {
-                        System.out.println(tenDown(inputRay[1]));
-                    }
-                    break;
-                case 2:
-                    System.out.println(tenUp(inputRay[1], tenDown(inputRay[2])));
-                    break;
-                case 3:
-                    if ((inputRay[2].equals("0")) && (inputRay[3].equals("0"))) {
-                        System.out.println(hunredUp(inputRay[1]));
-                    } else {
-                        System.out.print(hunredUp(inputRay[1]));
-                        System.out.print(" and " + tenUp(inputRay[2], tenDown(inputRay[3])) + "\n");
-                    }
-            }
-
-        }
-
-    }
-
-    private static String tenDown(String number) {
-        switch (number) {
-            case "0":
-                return "";
-            case "1":
-                return "one";
-            case "2":
-                return "two";
-            case "3":
-                return "three";
-            case "4":
-                return "four";
-            case "5":
-                return "five";
-            case "6":
-                return "six";
-            case "7":
-                return "seven";
-            case "8":
-                return "eight";
-            case "9":
-                return "nine";
-            default:
-                return "can't read this";
-        }
-    }
-
-    private static String tenUp(String number, String previous) {
-        switch (number) {
-            case "0":
-                return previous;
-            case "1":
-                switch (previous) {
-                    case "":
-                        return "ten";
-                    case "one":
-                        return "eleven";
-                    case "two":
-                        return "twelve";
-                    case "three":
-                        return "thirdteen";
-                    default:
-                        return previous + "teen";
+        Scanner sc = new Scanner(System.in);
+        int number = -1;
+        do {
+            System.out.println("Nhập số cần đọc (0 -> 999): ");
+            number = sc.nextInt();
+            if (number <= 9) {
+                switch (number) {
+                    case 0:
+                        System.out.println("zero ");
+                        break;
+                    case 1:
+                        System.out.println("one ");
+                        break;
+                    case 2:
+                        System.out.println("two ");
+                        break;
+                    case 3:
+                        System.out.println("three ");
+                        break;
+                    case 4:
+                        System.out.print("four ");
+                        break;
+                    case 5:
+                        System.out.println("five");
+                        break;
+                    case 6:
+                        System.out.println("six ");
+                        break;
+                    case 7:
+                        System.out.println("seven ");
+                        break;
+                    case 8:
+                        System.out.println("eight ");
+                        break;
+                    case 9:
+                        System.out.println("nine ");
+                        break;
                 }
-            case "2":
-                return "twenty " + previous;
-            case "3":
-                return "thirdty " + previous;
-            default:
-                return tenDown(number) + "ty" + " " + previous;
+            } else {
+                switch (number / 100) {
+                    case 1:
+                        System.out.print("one hundred ");
+                        break;
+                    case 2:
+                        System.out.print("two hundred ");
+                        break;
+                    case 3:
+                        System.out.print("three hundred ");
+                        break;
+                    case 4:
+                        System.out.print("four hundred ");
+                        break;
+                    case 5:
+                        System.out.print("five hundred ");
+                        break;
+                    case 6:
+                        System.out.print("six hundred ");
+                        break;
+                    case 7:
+                        System.out.print("seven hundred ");
+                        break;
+                    case 8:
+                        System.out.print("eight hundred ");
+                        break;
+                    case 9:
+                        System.out.print("nine hundred ");
+                        break;
+                }
 
+                switch (((number / 10) * 10) % 100) {
+                    case 10:
+                        System.out.print("ten ");
+                        break;
+                    case 20:
+                        System.out.print("twoty ");
+                        break;
+                    case 30:
+                        System.out.print("threety ");
+                        break;
+                    case 40:
+                        System.out.print("fourty ");
+                        break;
+                    case 50:
+                        System.out.print("fivety ");
+                        break;
+                    case 60:
+                        System.out.print("sixty ");
+                        break;
+                    case 70:
+                        System.out.print("seventy ");
+                        break;
+                    case 80:
+                        System.out.print("eightty ");
+                        break;
+                    case 90:
+                        System.out.print("ninety ");
+                        break;
+                }
+
+                switch (number % 10) {
+                    case 1:
+                        System.out.println("one ");
+                        break;
+                    case 2:
+                        System.out.println("two ");
+                        break;
+                    case 3:
+                        System.out.println("three ");
+                        break;
+                    case 4:
+                        System.out.print("four ");
+                        break;
+                    case 5:
+                        System.out.println("five");
+                        break;
+                    case 6:
+                        System.out.println("six ");
+                        break;
+                    case 7:
+                        System.out.println("seven ");
+                        break;
+                    case 8:
+                        System.out.println("eight ");
+                        break;
+                    case 9:
+                        System.out.println("nine ");
+                        break;
+                }
+            }
         }
-    }
-
-    private static String hunredUp(String number) {
-        return tenDown(number) + " hunred";
+        while (number < 0 || number > 999);
     }
 }
