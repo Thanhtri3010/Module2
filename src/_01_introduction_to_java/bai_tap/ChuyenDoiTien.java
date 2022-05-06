@@ -10,7 +10,7 @@ public class ChuyenDoiTien {
         double usd;
         usd = scanner.nextDouble();
         double exchange = usd*vnd;
-        System.out.println("Số tiền là: "+ exchange+ "2VND");
+        System.out.println("Số tiền là: "+ exchange+ "VND");
 
     }
 }
