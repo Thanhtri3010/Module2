@@ -17,12 +17,30 @@ public class XoaPhanTuMang {
         int i = 0;
         while (i < array.length) {
             System.out.print("Enter element" + (i + 1) + " : ");
-            array[i] = scanner.nextInt();
+            array[i] = Integer.parseInt(scanner.nextLine());
             i++;
         }
         System.out.print("Property list: ");
         for (int j = 0; j < array.length; j++) {
             System.out.print(array[j] + "\t");
+        }
+        System.out.println("nhập số cần xoá khỏi mảng");
+        int del = Integer.parseInt(scanner.nextLine());
+        for (int j = 0; j < array.length; j++) {
+            if (array[j] == del && del != array[array.length - 1]) {
+                array[j] = array[j + 1];
+                for (int k = j + 1; k < array.length - 1; k++) {
+                    array[k] = array[k + 1];
+                }
+                array[array.length - 1] = 0;
+                j--;
+            }else if (del == array[array.length-1]){
+                array[array.length -1 ] = 0;
+            }
+        }
+        System.out.println("mảng mới là:");
+        for (int j = 0; j <array.length ; j++) {
+            System.out.print(array[j] + " ");
         }
     }
 }
