@@ -26,20 +26,19 @@ public class XoaPhanTuMang {
         }
         System.out.println("nhập số cần xoá khỏi mảng");
         int del = Integer.parseInt(scanner.nextLine());
+        int index = array.length - 1;
         for (int j = 0; j < array.length; j++) {
-            if (array[j] == del && del != array[array.length - 1]) {
-                array[j] = array[j + 1];
-                for (int k = j + 1; k < array.length - 1; k++) {
+            if (del == array[j]) {
+                for (int k = j; k < array.length - 1; k++) {
                     array[k] = array[k + 1];
                 }
-                array[array.length - 1] = 0;
+                array[index] = 0;
                 j--;
-            }else if (del == array[array.length-1]){
-                array[array.length -1 ] = 0;
+                index--;
             }
         }
         System.out.println("mảng mới là:");
-        for (int j = 0; j <array.length ; j++) {
+        for (int j = 0; j < array.length; j++) {
             System.out.print(array[j] + " ");
         }
     }
