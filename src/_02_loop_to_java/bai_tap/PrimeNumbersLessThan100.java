@@ -2,7 +2,7 @@ package _02_loop_to_java.bai_tap;
 
 import java.util.Scanner;
 
-public class SoNguyenToNhoHon100 {
+public class PrimeNumbersLessThan100 {
     public static void main(String[] args) {
         for (int i = 0; i < 100; i++) {
             boolean check = true;

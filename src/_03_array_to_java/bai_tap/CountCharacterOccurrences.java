@@ -2,7 +2,7 @@ package _03_array_to_java.bai_tap;
 
 import java.util.Scanner;
 
-public class DemSoLanXuatHienKyTu {
+public class CountCharacterOccurrences {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         String[] str = {"a", "b", "c", "d", "a", "a", "a", "b"};

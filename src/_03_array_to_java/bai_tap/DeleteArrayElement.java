@@ -2,7 +2,7 @@ package _03_array_to_java.bai_tap;
 
 import java.util.Scanner;
 
-public class XoaPhanTuMang {
+public class DeleteArrayElement {
     public static void main(String[] args) {
         int size;
         int[] array;

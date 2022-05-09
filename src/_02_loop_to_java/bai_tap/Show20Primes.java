@@ -2,7 +2,7 @@ package _02_loop_to_java.bai_tap;
 
 import java.util.Scanner;
 
-public class HienThi20SoNguyenTo {
+public class Show20Primes {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("Nhập số lượng số nguyên tố cần in");

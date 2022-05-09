@@ -2,7 +2,7 @@ package _03_array_to_java.bai_tap;
 
 import java.util.Scanner;
 
-public class GopMang {
+public class MergeArray {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int[] array1 = new int[5];

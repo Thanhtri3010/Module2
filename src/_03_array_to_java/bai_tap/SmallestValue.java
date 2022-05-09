@@ -2,7 +2,7 @@ package _03_array_to_java.bai_tap;
 
 import java.util.Scanner;
 
-public class GiaTriNhoNhat {
+public class SmallestValue {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("nhập độ dài mảng");

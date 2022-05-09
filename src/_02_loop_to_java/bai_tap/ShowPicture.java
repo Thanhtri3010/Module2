@@ -2,7 +2,7 @@ package _02_loop_to_java.bai_tap;
 
 import java.util.Scanner;
 
-public class HienThiHinh {
+public class ShowPicture {
     public static void main(String[] args) {
         int choice= -1;
         Scanner input = new Scanner(System.in);
