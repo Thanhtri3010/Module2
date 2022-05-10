@@ -44,12 +44,12 @@ public class StopWatch {
 
         int [] array= new int[100000];
         for (int i = 0; i < array.length; i++) {
-            array[i]=(int) (Math.random()*1000);
+            array[i]=(int) (Math.random()*10);
         }
         /*System.out.println(Arrays.toString(array));*/
         StopWatch classStopWatch=new StopWatch();
         classStopWatch.star();
-       sort(array);
+        sort(array);
         classStopWatch.stop();
         System.out.println(Arrays.toString(array));
         System.out.println("Time:"+classStopWatch.getElapsedTime()+" Mili giây");
