@@ -1,33 +1,8 @@
-package _04_class_to_java.bai_tap;
+package _04_class_to_java.bai_tap.quadratic_equation;
 
 import java.util.Scanner;
 
-public class QuadraticEquation {
-    double a, b, c;
-
-    public QuadraticEquation(double a, double b, double c) {
-        this.a = a;
-        this.b = b;
-        this.c = c;
-
-    }
-
-    public double getDiscriminant() {
-        return b * b - 4 * a * c;
-    }
-
-    public double getRoot1() {
-        return (-b + Math.sqrt(b * b - 4 * a * c)) / 2 * a;
-    }
-
-    public double getRoot2() {
-        return (-b - Math.sqrt(b * b - 4 * a * c)) / 2 * a;
-    }
-
-    public double getRoot3() {
-        return -b / (2 * a);
-    }
-
+public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("Nhập số a");

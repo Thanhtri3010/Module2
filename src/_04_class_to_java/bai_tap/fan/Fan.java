@@ -1,11 +1,11 @@
-package _04_class_to_java.bai_tap;
+package _04_class_to_java.bai_tap.fan;
 
 public class Fan {
     final int SLOW = 1;
     final int MEDIUM = 2;
     final int FAST = 3;
-    public int speed =SLOW;
-    private boolean on =false;
+    public int speed = SLOW;
+    private boolean on = false;
     private double radius = 5;
     private String color = "blue";
 
@@ -52,27 +52,24 @@ public class Fan {
     public void setColor(String color) {
         this.color = color;
     }
-    public Fan(){
+
+    public Fan() {
     }
-    public Fan(int speed, boolean on,double radius, String color){
-        this.speed =speed;
-        this.on=on;
-        this.radius=radius;
-        this.color=color;
+
+    public Fan(int speed, boolean on, double radius, String color) {
+        this.speed = speed;
+        this.on = on;
+        this.radius = radius;
+        this.color = color;
     }
-    public String Print(){
-        if (on){
-            return " Speed: " +this.speed + " Radius: " + this.radius + " Collor "+ this.color + " Fan on";
-        }else {
-            speed=0;
-            return " Speed: " +this.speed + " Radius: " + this.radius + " Collor "+ this.color + " Fan off";
+
+    public String Print() {
+        if (on) {
+            return " Speed: " + this.speed + " Radius: " + this.radius + " Collor " + this.color + "  Fan on";
+        } else {
+            speed = 0;
+            return " Speed: " + this.speed + " Radius: " + this.radius + " Collor " + this.color + " Fan off";
         }
     }
 
-    public static void main(String[] args) {
-        Fan fan1 = new Fan(3, true, 10, "yellow");
-        Fan fan2 = new Fan(2, false,5,"blue");
-        System.out.println(fan1.Print());
-        System.out.println(fan2.Print());
-    }
 }
