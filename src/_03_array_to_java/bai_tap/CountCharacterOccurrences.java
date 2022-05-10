@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class CountCharacterOccurrences {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        String[] str = {"a", "b", "c", "d", "a", "a", "a", "b"};
+        String[] str = {"a", "b", "c", "d", "a", "b", "a", "c", "e", "e", "d"};
         System.out.print("Nhập kí tự muốn tìm kiếm trong chuỗi: ");
         String inputStr = input.nextLine();
         int count = 0;for (int i = 0; i < str.length; i++) {
