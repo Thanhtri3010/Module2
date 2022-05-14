@@ -1,11 +1,13 @@
 package _06_inheritace.thuc_hanh.thuc_hanh_1;
 
-public class Square extends Rectangle{
-    public Square(){
+public class Square extends Rectangle {
+    public Square() {
     }
-    public Square(double side){
-        super(side,side);
+
+    public Square(double side) {
+        super(side, side);
     }
+
     public Square(double side, String color, boolean filled) {
         super(side, side, color, filled);
     }

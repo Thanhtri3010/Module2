@@ -38,22 +38,20 @@ public class MoveablePoint extends Point {
         this.xSpeed = xSpeed;
         this.ySpeed = ySpeed;
     }
-    public float[] getSpeed(){
-        float array[]={xSpeed,ySpeed};
+
+    public float[] getSpeed() {
+        float array[] = {xSpeed, ySpeed};
         return array;
     }
 
     @Override
     public String toString() {
-        return "MoveablePoint{" +
-                "xSpeed=" + xSpeed +
-                ", ySpeed=" + ySpeed +
-                super.toString()+
-                '}';
+        return super.toString() + ",Speed=(" + xSpeed + ySpeed +")" ;
     }
-    public MoveablePoint move(){
-        super.setX(xSpeed+super.getX());
-        super.setY(ySpeed+super.getY());
+
+    public MoveablePoint move() {
+        super.setX(xSpeed + super.getX());
+        super.setY(ySpeed + super.getY());
         return this;
 
 
