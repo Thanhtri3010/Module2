@@ -149,7 +149,7 @@ public class PersonTest {
 
         for (int i = 0; i < personList.length; i++) {
             if (personList[i] instanceof Teacher && personList[i].getId() == inputIdRemove) {
-                for (int j = i; j < personList.length && personList[j] != null; j++) {
+                for (int j = i; j < count; j++) {
                     personList[j] = personList[j + 1];
                 }
             }
@@ -163,7 +163,7 @@ public class PersonTest {
 
         for (int i = 0; i < personList.length; i++) {
             if (personList[i] instanceof Student && personList[i].getId() == inputIdRemove) {
-                for (int j = i; j < personList.length && personList[j] != null; j++) {
+                for (int j = i; j < count; j++) {
                     personList[j] = personList[j + 1];
                 }
             }
