@@ -64,7 +64,7 @@ public class PersonTest {
         System.out.println("Nhập Điểm");
         double point = Double.parseDouble(sc.nextLine());
 
-        personList[count] = new Teacher(count + 1, name, age, gender, point);
+        personList[count] = new Student(count + 1, name, age, gender, point);
         System.out.println("more success");
     }
 
