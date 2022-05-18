@@ -1,4 +1,4 @@
-package _010_list.bai_tạp.my_list;
+package _10_list.bai_tạp.my_list;
 
 import java.util.Arrays;
 

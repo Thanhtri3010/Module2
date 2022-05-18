@@ -1,4 +1,4 @@
-package _010_list.thuc_hanh.linked_list;
+package _10_list.thuc_hanh.linked_list;
 
 public class TestMyLinkedList {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package _010_list.bai_tạp.linked_list;
+package _10_list.bai_tạp.linked_list;
 
 public class MyLinkedList {private Node head;
     private int numNode;

@@ -1,4 +1,4 @@
-package _010_list.thuc_hanh.list_simple;
+package _10_list.thuc_hanh.list_simple;
 
 import java.util.Arrays;
 
