@@ -48,7 +48,6 @@ public class ProductService implements IProductService {
 
     @Override
     public void removeProductById() {
-        int count = 0;
         System.out.println("Nhập id muốn xoá");
         int idRemove = Integer.parseInt(scanner.nextLine());
         if ((idRemove - 1) >= productList.size()) {
