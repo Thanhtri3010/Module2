@@ -12,7 +12,7 @@ public class Test {
         person.add(new Demerging("Vy", false, 1992));
         person.add(new Demerging("Linh", false, 1991));
         Collections.sort(person);
-        for (Demerging item: person) {
+        for (Demerging item : person) {
             System.out.println(item);
         }
         for (Demerging demerging : person) {
