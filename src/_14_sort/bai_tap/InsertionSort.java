@@ -24,6 +24,7 @@ public class InsertionSort {
             display(arr);
         }
     }
+
     public void display(int arr[]) {
         int i;
         System.out.print("[");
@@ -33,6 +34,7 @@ public class InsertionSort {
         }
         System.out.print("]\n");
     }
+
     public static void main(String[] args) {
         int arr[] = {6, 7, 0, 2, 8, 1, 3, 9, 4, 5};
         InsertionSort insertionSort = new InsertionSort();

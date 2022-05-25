@@ -21,7 +21,7 @@ public class SetInsertionSort {
         int arr[] = {12, 11, 13, 5, 6};
         System.out.println("Mảng ban đầu:");
         System.out.println(Arrays.toString(arr));
-        InsertionSort ob = new InsertionSort();
+        SetInsertionSort ob = new SetInsertionSort();
         ob.sort(arr);
         System.out.println("Mảng sau khi sắp xếp:");
         System.out.println(Arrays.toString(arr));
