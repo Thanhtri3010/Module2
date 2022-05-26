@@ -60,6 +60,13 @@ public class FuramaController {
                 case 3:
                     employeeService.edit();
                     break;
+                case 4:
+                    return;
+                default:
+                    System.out.println("Số nhập không có trong danh sách" );
+                    System.out.println("Nhập lại");
+                    displayEmployeeMenu();
+                    break;
             }
         }
 
