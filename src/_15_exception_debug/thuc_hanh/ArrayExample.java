@@ -1,4 +1,4 @@
-package _15_debug.thuc_hanh;
+package _15_exception_debug.thuc_hanh;
 
 import java.util.Random;
 import java.util.Scanner;

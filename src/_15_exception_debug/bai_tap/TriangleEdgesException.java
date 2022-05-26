@@ -1,4 +1,4 @@
-package _15_debug.bai_tap;
+package _15_exception_debug.bai_tap;
 
 import java.util.Scanner;
 
