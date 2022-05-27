@@ -1,6 +1,8 @@
 package case_study_module2.controllers;
 
+import case_study_module2.services.Impl.CustomerServiceImpl;
 import case_study_module2.services.Impl.EmployeeServiceImpl;
+import case_study_module2.services.Impl.FacilityServiceImpl;
 
 import java.util.Scanner;
 
@@ -63,7 +65,7 @@ public class FuramaController {
                 case 4:
                     return;
                 default:
-                    System.out.println("Số nhập không có trong danh sách" );
+                    System.out.println("Số nhập không có trong danh sách");
                     System.out.println("Nhập lại");
                     displayEmployeeMenu();
                     break;
@@ -73,6 +75,7 @@ public class FuramaController {
     }
 
     public static void displayCustomerMenu() {
+        CustomerServiceImpl customerService = new CustomerServiceImpl();
         boolean check = true;
         while (check) {
             System.out.print("1.\tDisplay list customers\n" +
@@ -82,12 +85,26 @@ public class FuramaController {
             Scanner scanner = new Scanner(System.in);
             switch (scanner.nextInt()) {
                 case 1:
+                    customerService.display();
+                    break;
+                case 2:
+                    customerService.addNew();
+                case 3:
+                    customerService.edit();
+                case 4:
+                    return;
+                default:
+                    System.out.println("Số nhập không có trong danh sách");
+                    System.out.println("Nhập lại");
+                    displayCustomerMenu();
+                    break;
             }
         }
 
     }
 
     public static void displayFacilityMenu() {
+        FacilityServiceImpl facilityService = new FacilityServiceImpl();
         boolean check = true;
         while (check) {
             System.out.print("1\tDisplay list facility\n" +
@@ -97,6 +114,10 @@ public class FuramaController {
             Scanner scanner = new Scanner(System.in);
             switch (scanner.nextInt()) {
                 case 1:
+                    facilityService.display();
+                    break;
+                case 2:
+                    facilityService.addNewVilla();
             }
         }
 
