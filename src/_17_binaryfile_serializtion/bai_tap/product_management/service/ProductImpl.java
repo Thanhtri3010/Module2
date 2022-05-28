@@ -1,7 +1,7 @@
-package _17_binaryfile_serializtion.bai_tap.service;
+package _17_binaryfile_serializtion.bai_tap.product_management.service;
 
-import _17_binaryfile_serializtion.bai_tap.WriteAndRead;
-import _17_binaryfile_serializtion.bai_tap.models.Product;
+import _17_binaryfile_serializtion.bai_tap.product_management.WriteAndRead;
+import _17_binaryfile_serializtion.bai_tap.product_management.models.Product;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,8 +46,8 @@ public class ProductImpl implements IProduct {
     public void search() {
         System.out.println("Nhập tên sản phẩn bạn muốn tìm");
         String inputName = scanner.nextLine();
-        for (Product item: productList) {
-            if(item.getName().contains(inputName)){
+        for (Product item : productList) {
+            if (item.getName().contains(inputName)) {
                 System.out.println(item);
             }
         }

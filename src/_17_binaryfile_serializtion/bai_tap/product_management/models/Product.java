@@ -1,4 +1,4 @@
-package _17_binaryfile_serializtion.bai_tap.models;
+package _17_binaryfile_serializtion.bai_tap.product_management.models;
 
 import java.io.Serializable;
 

@@ -1,6 +1,6 @@
-package _17_binaryfile_serializtion.bai_tap;
+package _17_binaryfile_serializtion.bai_tap.product_management;
 
-import _17_binaryfile_serializtion.bai_tap.models.Product;
+import _17_binaryfile_serializtion.bai_tap.product_management.models.Product;
 
 import java.io.*;
 import java.util.ArrayList;

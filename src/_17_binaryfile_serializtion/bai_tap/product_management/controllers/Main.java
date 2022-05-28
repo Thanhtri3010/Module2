@@ -1,7 +1,7 @@
-package _17_binaryfile_serializtion.bai_tap.controllers;
+package _17_binaryfile_serializtion.bai_tap.product_management.controllers;
 
-import _17_binaryfile_serializtion.bai_tap.service.IProduct;
-import _17_binaryfile_serializtion.bai_tap.service.ProductImpl;
+import _17_binaryfile_serializtion.bai_tap.product_management.service.IProduct;
+import _17_binaryfile_serializtion.bai_tap.product_management.service.ProductImpl;
 
 import java.util.Scanner;
 
