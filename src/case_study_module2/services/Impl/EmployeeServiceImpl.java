@@ -1,6 +1,6 @@
 package case_study_module2.services.Impl;
 
-import case_study_module2.models.Employee;
+import case_study_module2.models.people.Employee;
 import case_study_module2.services.EmployeeService;
 
 import java.util.ArrayList;
@@ -21,7 +21,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public void display() {
         for (Employee item:employeeList) {
-            System.out.println(item);
+            System.out.println(item.toString());
         }
     }
 

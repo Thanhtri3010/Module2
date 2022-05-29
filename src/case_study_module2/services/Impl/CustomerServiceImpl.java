@@ -1,7 +1,6 @@
 package case_study_module2.services.Impl;
 
-import case_study_module2.models.Customer;
-import case_study_module2.models.Employee;
+import case_study_module2.models.people.Customer;
 import case_study_module2.services.CustomerService;
 
 import java.util.LinkedList;
@@ -15,7 +14,7 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public void display() {
         for (Customer item : customerList) {
-            System.out.println(item);
+            System.out.println(item.toString());
         }
     }
 

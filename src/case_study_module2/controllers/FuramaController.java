@@ -1,8 +1,6 @@
 package case_study_module2.controllers;
 
-import case_study_module2.services.Impl.CustomerServiceImpl;
-import case_study_module2.services.Impl.EmployeeServiceImpl;
-import case_study_module2.services.Impl.FacilityServiceImpl;
+import case_study_module2.services.Impl.*;
 
 import java.util.Scanner;
 
@@ -117,13 +115,61 @@ public class FuramaController {
                     facilityService.display();
                     break;
                 case 2:
-                    facilityService.addNewVilla();
+                    addNewFacilityMenu();
+                    break;
+                case 3:
+                    facilityService.displayMaintain();
+                    break;
+                case 4:
+                    return;
+                default:
+                    System.out.println("Số nhập không có trong danh sách");
+                    System.out.println("Nhập lại");
+                    displayFacilityMenu();
+                    break;
             }
         }
 
     }
 
+    public static void addNewFacilityMenu() {
+        FacilityServiceImpl facilityService = new FacilityServiceImpl();
+        boolean check = true;
+        while (check) {
+            System.out.print("1\tAdd New Villa\n" +
+                    "2\tAdd New House\n" +
+                    "3\tAdd New Room\n" +
+                    "4\tReturn main menu\n");
+            Scanner scanner = new Scanner(System.in);
+            switch (scanner.nextInt()) {
+                case 1:
+                    facilityService.addNewVilla();
+                    displayFacilityMenu();
+                    break;
+                case 2:
+                    facilityService.addNewHouse();
+                    displayFacilityMenu();
+                    break;
+                case 3:
+                    facilityService.addNewRoom();
+                    displayFacilityMenu();
+                    break;
+                case 4:
+                    return;
+                default:
+                    System.out.println("Số nhập không có trong danh sách");
+                    System.out.println("Nhập lại");
+                    addNewFacilityMenu();
+                    break;
+            }
+        }
+
+    }
+
+
     public static void displayBookingMenu() {
+        BookingServiceImpl bookingService = new BookingServiceImpl();
+        ContactServiceImpl contactService = new ContactServiceImpl();
         boolean check = true;
         while (check) {
             System.out.println("1.\tAdd new booking\n" +
@@ -135,6 +181,18 @@ public class FuramaController {
             Scanner scanner = new Scanner(System.in);
             switch (scanner.nextInt()) {
                 case 1:
+                    bookingService.addNew();
+                    break;
+                case 2:
+                    bookingService.display();
+                    break;
+                case 3:
+                    contactService.addNew();
+                    break;
+                case 4:
+                    contactService.display();
+                    break;
+
             }
         }
 

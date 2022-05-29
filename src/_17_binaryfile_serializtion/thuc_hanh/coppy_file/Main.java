@@ -9,7 +9,6 @@ public class Main {
     private static void copyFileUsingJava7Files(File source, File dest) throws IOException {
         Files.copy(source.toPath(), dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
     }
-
     private static void copyFileUsingStream(File source, File dest) throws IOException {
         InputStream is = null;
         OutputStream os = null;
@@ -29,15 +28,12 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-
         System.out.print("Enter source file:");
         String sourcePath = in.nextLine();
         System.out.print("Enter destination file:");
         String destPath = in.nextLine();
-
         File sourceFile = new File(sourcePath);
         File destFile = new File(destPath);
-
         try {
             copyFileUsingJava7Files(sourceFile, destFile);
             System.out.print("Copy completed");
