@@ -1,7 +1,7 @@
 package case_study_module2.models.function;
 
 import case_study_module2.models.faciity.Facility;
-import case_study_module2.models.people.Customer;
+import case_study_module2.models.person.Customer;
 
 public class Booking {
     private int idBooking;

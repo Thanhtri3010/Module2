@@ -13,13 +13,14 @@ public class CrawlSongExample {
     public static void main(String[] args) {
         try {
             URL url = new URL("https://www.nhaccuatui.com/bai-hat/nhac-tre-moi.html");
-            // open the stream and put it into BufferedReader
+            //mở luồng và đưa nó vào BufferedReader
             Scanner scanner = new Scanner(new InputStreamReader(url.openStream()));
             scanner.useDelimiter("\\Z");
             String content = scanner.next();
             // close scanner
             scanner.close();
-            // remove all new line
+            //
+            //loại bỏ tất cả dòng mới
             content = content.replaceAll("\\n+", "");
             // regex
             Pattern p = Pattern.compile("name_song\">(.*?)</a>");

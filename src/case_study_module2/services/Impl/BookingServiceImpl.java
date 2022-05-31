@@ -3,7 +3,7 @@ package case_study_module2.services.Impl;
 import case_study_module2.models.faciity.Facility;
 import case_study_module2.models.faciity.Villa;
 import case_study_module2.models.function.Booking;
-import case_study_module2.models.people.Customer;
+import case_study_module2.models.person.Customer;
 import case_study_module2.services.BookingService;
 import case_study_module2.utils.BookingComparator;
 
@@ -60,11 +60,6 @@ public class BookingServiceImpl implements BookingService {
 
     @Override
     public void edit() {
-
-    }
-
-    @Override
-    public void delete() {
 
     }
 

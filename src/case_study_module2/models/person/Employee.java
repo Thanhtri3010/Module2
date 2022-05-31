@@ -1,6 +1,4 @@
-package case_study_module2.models.people;
-
-import case_study_module2.models.people.Person;
+package case_study_module2.models.person;
 
 public class Employee extends Person {
     private String level;

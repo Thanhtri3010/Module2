@@ -2,7 +2,7 @@ package case_study_module2.services.Impl;
 
 import case_study_module2.models.function.Booking;
 import case_study_module2.models.function.Contract;
-import case_study_module2.models.people.Customer;
+import case_study_module2.models.person.Customer;
 import case_study_module2.services.ContactService;
 
 import java.util.*;
@@ -48,8 +48,4 @@ public class ContactServiceImpl implements ContactService {
 
     }
 
-    @Override
-    public void delete() {
-
-    }
 }
