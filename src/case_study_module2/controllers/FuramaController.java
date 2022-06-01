@@ -102,8 +102,10 @@ public class FuramaController {
                     break;
                 case 2:
                     customerService.addNew();
+                    break;
                 case 3:
                     customerService.edit();
+                    break;
                 case 4:
                     return;
                 default:
@@ -214,10 +216,10 @@ public class FuramaController {
             }
             switch (choice) {
                 case 1:
-                    bookingService.addNew();
+                    bookingService.addBooking();
                     break;
                 case 2:
-                    bookingService.display();
+                    bookingService.displayBooking();
                     break;
                 case 3:
                     contactService.addNew();

@@ -2,6 +2,7 @@ package case_study_module2.services.Impl;
 
 import case_study_module2.models.person.Customer;
 import case_study_module2.services.CustomerService;
+import case_study_module2.utils.ReadAndWrite;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -13,13 +14,24 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void display() {
+        List<String[]> listStr = ReadAndWrite.readTextFile("src/case_study_module2/data/person/customer.csv");
+        customerList.clear();
+        for (String[] item : listStr) {
+            Customer customer = new Customer(Integer.parseInt(item[0]), item[1], Integer.parseInt(item[2]), item[3], item[4], item[5], item[6], item[7]);
+            customerList.add(customer);
+        }
         for (Customer item : customerList) {
-            System.out.println(item.toString());
+            System.out.println(item);
         }
     }
 
     @Override
     public void addNew() {
+        List<String[]> listStr = ReadAndWrite.readTextFile("src/case_study_module2/data/person/customer.csv");
+        for (String[] item : listStr) {
+            Customer customer = new Customer(Integer.parseInt(item[0]), item[1], Integer.parseInt(item[2]), item[3], item[4], item[5], item[6], item[7]);
+            customerList.add(customer);
+        }
         System.out.println("nhập id");
         int id = Integer.parseInt(scanner.nextLine());
 
@@ -50,10 +62,10 @@ public class CustomerServiceImpl implements CustomerService {
             int choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
                 case 1:
-                    customerType="Diamond";
+                    customerType = "Diamond";
                     break;
                 case 2:
-                    customerType="Platinium";
+                    customerType = "Platinium";
                     break;
                 case 3:
                     customerType = "Gold";
@@ -72,11 +84,28 @@ public class CustomerServiceImpl implements CustomerService {
         String address = scanner.nextLine();
         Customer customer = new Customer(id, name, age, sex, idCard, email, customerType, address);
         customerList.add(customer);
+        String line = "";
+        for (Customer item : customerList) {
+            line += item.getId()+","
+                    +item.getName()+","
+                    +item.getAge()+","
+                    +item.getSex()+","
+                    +item.getIdCard()+","
+                    +item.getEmail()+","
+                    +item.getTypeCustomer()+","
+                    +item.getAddress()+"\n";
+        }
+        ReadAndWrite.writeFile("src/case_study_module2/data/person/customer.csv",line);
         System.out.println("Đã thêm mới khách hàng thành công");
     }
 
     @Override
     public void edit() {
+        List<String[]> listStr = ReadAndWrite.readTextFile("src/case_study_module2/data/person/customer.csv");
+        for (String[] item : listStr) {
+            Customer customer = new Customer(Integer.parseInt(item[0]), item[1], Integer.parseInt(item[2]), item[3], item[4], item[5], item[6], item[7]);
+            customerList.add(customer);
+        }
         int count = 0;
         System.out.println("Nhập Id muốn sửa");
         int idEdit = Integer.parseInt(scanner.nextLine());
@@ -109,10 +138,10 @@ public class CustomerServiceImpl implements CustomerService {
                     int choice = Integer.parseInt(scanner.nextLine());
                     switch (choice) {
                         case 1:
-                            customerType="Diamond";
+                            customerType = "Diamond";
                             break;
                         case 2:
-                            customerType="Platinium";
+                            customerType = "Platinium";
                             break;
                         case 3:
                             customerType = "Gold";
@@ -131,9 +160,25 @@ public class CustomerServiceImpl implements CustomerService {
                 System.out.println("Nhập địa chỉ");
                 String address = scanner.nextLine();
 
-                int id = customerList.get(customerList.size() - 1).getId() + 1;
-                Customer customer = new Customer(id, name, age, sex, idCard, email, customerType, address);
-                customerList.set(i, customer);
+                customerList.get(i).setName(name);
+                customerList.get(i).setAge(age);
+                customerList.get(i).setSex(sex);
+                customerList.get(i).setIdCard(idCard);
+                customerList.get(i).setEmail(email);
+                customerList.get(i).setTypeCustomer(customerType);
+                customerList.get(i).setAddress(address);
+                String line ="";
+                for (Customer item : customerList){
+                    line += item.getId()+","
+                            +item.getName()+","
+                            +item.getAge()+","
+                            +item.getSex()+","
+                            +item.getIdCard()+","
+                            +item.getEmail()+","
+                            +item.getTypeCustomer()+","
+                            +item.getAddress()+"\n";
+                }
+                ReadAndWrite.writeFile("src/case_study_module2/data/person/customer.csv",line);
                 count++;
                 System.out.println("Sửa thành công");
                 break;

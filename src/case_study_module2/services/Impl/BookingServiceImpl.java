@@ -13,9 +13,7 @@ public class BookingServiceImpl implements BookingService {
     static Scanner scanner = new Scanner(System.in);
 
     static Set<Booking> bookingSet = new TreeSet<>(new BookingComparator());
-
     static List<Customer> customerList = new ArrayList<>();
-
     static Map<Facility, Integer> facilityIntegerMap = new LinkedHashMap<>();
 
     static {
@@ -34,14 +32,14 @@ public class BookingServiceImpl implements BookingService {
     }
 
     @Override
-    public void display() {
+    public void displayBooking() {
         for (Booking item: bookingSet) {
             System.out.println(item.toString());
         }
     }
 
     @Override
-    public void addNew() {
+    public void addBooking() {
         int id = 1;
         if (!bookingSet.isEmpty()) {
             id = bookingSet.size();
@@ -56,11 +54,6 @@ public class BookingServiceImpl implements BookingService {
 
         bookingSet.add(booking);
         System.out.println("Đã booking thành công.");
-    }
-
-    @Override
-    public void edit() {
-
     }
 
     public static Customer chooseCustomer() {
@@ -107,5 +100,20 @@ public class BookingServiceImpl implements BookingService {
             }
         }
         return null;
+    }
+
+    @Override
+    public void createConstracts() {
+
+    }
+
+    @Override
+    public void displayContracts() {
+
+    }
+
+    @Override
+    public void editContracts() {
+
     }
 }

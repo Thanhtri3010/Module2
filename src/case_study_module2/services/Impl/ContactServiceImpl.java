@@ -29,7 +29,7 @@ public class ContactServiceImpl implements ContactService {
         while (!bookingQueue.isEmpty()) {
             Booking booking = bookingQueue.poll();
             Customer customer = booking.getCustomer();
-            System.out.println("Đang tạo hợp đồng cho booking có thông tin: " + booking.toString());
+            System.out.println("Đang tạo hợp đồng cho booking có thông tin: " + booking);
             System.out.println("Đang tạo hợp đồng cho khách hàng có thông tin: " + customer.toString());
             System.out.println("Nhập id hợp đồng: ");
             String id = scanner.nextLine();
