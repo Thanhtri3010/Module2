@@ -1,10 +1,24 @@
 package case_study_module2.models.person;
 
+import case_study_module2.comma.Comma;
+
 public class Customer extends Person {
     private String typeCustomer;
     private String address;
 
     public Customer() {
+    }
+
+    @Override
+    public String getInfo() {
+        return super.getId()+ Comma.COMMA+
+                super.getName()+ Comma.COMMA+
+                super.getAge()+ Comma.COMMA+
+                super.getSex()+ Comma.COMMA+
+                super.getIdCard()+ Comma.COMMA+
+                super.getEmail()+ Comma.COMMA+
+                this.getTypeCustomer()+ Comma.COMMA+
+                this.getAddress()+ Comma.COMMA+"\n";
     }
 
     public Customer(String typeCustomer, String address) {

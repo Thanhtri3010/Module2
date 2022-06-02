@@ -68,6 +68,8 @@ public abstract class Facility {
         this.styleRental = styleRental;
     }
 
+    public abstract String getInfo();
+
     @Override
     public String toString() {
         return "idFacility='" + idFacility + '\'' +

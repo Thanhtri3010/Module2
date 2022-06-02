@@ -2,7 +2,7 @@ package case_study_module2.services.Impl;
 
 import case_study_module2.models.person.Employee;
 import case_study_module2.services.EmployeeService;
-import case_study_module2.services.exception.RegexData;
+import case_study_module2.utils.ReadAndWirte2;
 import case_study_module2.utils.ReadAndWrite;
 
 import java.util.ArrayList;
@@ -10,17 +10,14 @@ import java.util.List;
 import java.util.Scanner;
 
 public class EmployeeServiceImpl implements EmployeeService {
+    public static final String EMPLOYEE_FILE_PATH = "src/case_study_module2/data/person/employee.csv";
     private static List<Employee> employeeList = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
 
     @Override
     public void display() {
-        List<String[]> listStr = ReadAndWrite.readTextFile("src/case_study_module2/data/person/employee.csv");
         employeeList.clear();
-        for (String[] item : listStr) {
-            Employee employee = new Employee(Integer.parseInt(item[0]), item[1], Integer.parseInt(item[2]), item[3], item[4], item[5], item[6], item[7], Integer.parseInt(item[8]));
-            employeeList.add(employee);
-        }
+        employeeList = ReadAndWirte2.readEmployee(EMPLOYEE_FILE_PATH);
         for (Employee item : employeeList) {
             System.out.println(item);
         }
@@ -28,11 +25,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public void addNew() {
-        List<String[]> listStr = ReadAndWrite.readTextFile("src/case_study_module2/data/person/employee.csv");
-        for (String[] item : listStr) {
-            Employee employee = new Employee(Integer.parseInt(item[0]), item[1], Integer.parseInt(item[2]), item[3], item[4], item[5], item[6], item[7], Integer.parseInt(item[8]));
-            employeeList.add(employee);
-        }
+        employeeList.clear();
+        employeeList = ReadAndWirte2.readEmployee(EMPLOYEE_FILE_PATH);
 
         System.out.println("nhập id");
         int id = Integer.parseInt(scanner.nextLine());
@@ -52,95 +46,23 @@ public class EmployeeServiceImpl implements EmployeeService {
         System.out.println("Nhập email");
         String email = scanner.nextLine();
 
-        String level = null;
-        while (level == null) {
-            System.out.println("--------Nhập trình độ nhân viên---------\n" +
-                    "\t1. Trung cấp \n" +
-                    "\t2. Cao đẳng \n" +
-                    "\t3. Đại học \n" +
-                    "\t4. Sau đại học \n" +
-                    "\tEnter: ");
-            int choice = Integer.parseInt(scanner.nextLine());
-            switch (choice) {
-                case 1:
-                    level = "Trung cấp";
-                    break;
-                case 2:
-                    level = "Cao đẳng";
-                    break;
-                case 3:
-                    level = "Đại học";
-                case 4:
-                    level = "Sau đại học";
-                    break;
-                default:
-                    System.out.println("Nhập sai vui lòng nhập lại");
-            }
-        }
+        String level = menuLevel();
 
-        String position = null;
-        while (position == null) {
-            System.out.println("--------Nhập vị trí nhân viên---------\n" +
-                    "\t1. Lễ tân \n" +
-                    "\t2. Phục vụ \n" +
-                    "\t3. Chuyên viên \n" +
-                    "\t4. Giám sát \n" +
-                    "\t5. Quản lý \n" +
-                    "\t6. Giám đốc \n" +
-                    "\tEnter: ");
-            int choice = Integer.parseInt(scanner.nextLine());
-            switch (choice) {
-                case 1:
-                    position = "Lễ tân";
-                    break;
-                case 2:
-                    position = "Phục Vụ";
-                    break;
-                case 3:
-                    position = "Chuyên viên";
-                    break;
-                case 4:
-                    position = "Giám Sát";
-                    break;
-                case 5:
-                    position = "Quản lý";
-                    break;
-                case 6:
-                    position = "Giám Đốc";
-                    break;
-                default:
-                    System.out.println("Nhập sai vui lòng nhập lại");
-            }
-        }
+        String position = menuPosition();
 
         System.out.println("Nhập lương");
         int salary = Integer.parseInt(scanner.nextLine());
 
         Employee employee = new Employee(id, name, age, sex, idCard, email, level, position, salary);
         employeeList.add(employee);
-        String line = "";
-        for (Employee item : employeeList) {
-            line += item.getId() + ","
-                    + item.getName() + ","
-                    + item.getAge() + ","
-                    + item.getSex() + ","
-                    + item.getIdCard() + ","
-                    + item.getEmail() + ","
-                    + item.getLevel() + ","
-                    + item.getPosition() + ","
-                    + item.getSalary() + "\n";
-        }
-        ReadAndWrite.writeFile("src/case_study_module2/data/person/employee.csv", line);
+        ReadAndWirte2.writeEmployee(EMPLOYEE_FILE_PATH, employeeList);
         System.out.println("Thêm mới thành công");
     }
 
     @Override
     public void edit() {
-        List<String[]> listStr = ReadAndWrite.readTextFile("src/case_study_module2/data/person/employee.csv");
-        for (String[] item : listStr) {
-            Employee employee = new Employee(Integer.parseInt(item[0]), item[1], Integer.parseInt(item[2]), item[3], item[4], item[5], item[6], item[7], Integer.parseInt(item[8]));
-            employeeList.add(employee);
-        }
+        employeeList.clear();
+        employeeList = ReadAndWirte2.readEmployee(EMPLOYEE_FILE_PATH);
         int count = 0;
         System.out.println("Nhập Id muốn sửa");
         int idEdit = Integer.parseInt(scanner.nextLine());
@@ -161,91 +83,17 @@ public class EmployeeServiceImpl implements EmployeeService {
                 System.out.println("Nhập email");
                 String email = scanner.nextLine();
 
-                String level = null;
-                while (level == null) {
-                    System.out.println("--------Nhập trình độ nhân viên---------\n" +
-                            "\t1. Trung cấp \n" +
-                            "\t2. Cao đẳng \n" +
-                            "\t3. Đại học \n" +
-                            "\t4. Sau đại học \n" +
-                            "\tEnter: ");
-                    int choice = Integer.parseInt(scanner.nextLine());
-                    switch (choice) {
-                        case 1:
-                            level = "Trung cấp";
-                            break;
-                        case 2:
-                            level = "Cao đẳng";
-                            break;
-                        case 3:
-                            level = "Đại học";
-                            break;
-                        case 4:
-                            level = "Sau đại học";
-                            break;
-                        default:
-                            System.out.println("Nhập sai vui lòng nhập lại");
-                    }
-                }
+                String level = menuLevel();
 
-                String position = null;
-                while (position == null) {
-                    System.out.println("--------Nhập vị trí nhân viên---------\n" +
-                            "\t1. Lễ tân \n" +
-                            "\t2. Phục vụ \n" +
-                            "\t3. Chuyên viên \n" +
-                            "\t4. Giám sát \n" +
-                            "\t5. Quản lý \n" +
-                            "\t6. Giám đốc \n" +
-                            "\tEnter: ");
-                    int choice = Integer.parseInt(scanner.nextLine());
-                    switch (choice) {
-                        case 1:
-                            position = "Lễ tân";
-                            break;
-                        case 2:
-                            position = "Phục Vụ";
-                            break;
-                        case 3:
-                            position = "Chuyên viên";
-                            break;
-                        case 4:
-                            position = "Giám Sát";
-                            break;
-                        case 5:
-                            position = "Quản lý";
-                            break;
-                        case 6:
-                            position = "Giám Đốc";
-                            break;
-                        default:
-                            System.out.println("Nhập sai vui lòng nhập lại");
-                    }
-                }
+                String position = menuPosition();
+
                 System.out.println("Nhập lương");
                 int salary = Integer.parseInt(scanner.nextLine());
-                employeeList.get(i).setName(name);
-                employeeList.get(i).setAge(age);
-                employeeList.get(i).setSex(sex);
-                employeeList.get(i).setIdCard(idCard);
-                employeeList.get(i).setEmail(email);
-                employeeList.get(i).setLevel(level);
-                employeeList.get(i).setPosition(position);
-                employeeList.get(i).setSalary(salary);
-                String line = "";
-                for (Employee item : employeeList) {
-                    line += item.getId() + ","
-                            + item.getName() + ","
-                            + item.getAge() + ","
-                            + item.getSex() + ","
-                            + item.getIdCard() + ","
-                            + item.getEmail() + ","
-                            + item.getLevel() + ","
-                            + item.getPosition() + ","
-                            + item.getSalary() + "\n";
-                }
-                ReadAndWrite.writeFile("src/case_study_module2/data/person/employee.csv", line);
+                int id = idEdit;
+                Employee employee = new Employee(id, name, age, sex, idCard, email, level, position, salary);
+                employeeList.set(i, employee);
                 count++;
+                ReadAndWirte2.writeEmployee(EMPLOYEE_FILE_PATH, employeeList);
                 System.out.println("Sửa thành công");
                 break;
             }
@@ -255,4 +103,57 @@ public class EmployeeServiceImpl implements EmployeeService {
         }
     }
 
+    public String menuLevel() {
+        while (true) {
+            System.out.println("--------Nhập trình độ nhân viên---------\n" +
+                    "\t1. Trung cấp \n" +
+                    "\t2. Cao đẳng \n" +
+                    "\t3. Đại học \n" +
+                    "\t4. Sau đại học \n" +
+                    "\tEnter: ");
+            int choice = Integer.parseInt(scanner.nextLine());
+            switch (choice) {
+                case 1:
+                    return "Trung cấp";
+                case 2:
+                    return "Cao đẳng";
+                case 3:
+                    return "Đại học";
+                case 4:
+                    return "Sau đại học";
+                default:
+                    System.out.println("Nhập sai vui lòng nhập lại");
+            }
+        }
+    }
+
+    public String menuPosition() {
+        while (true) {
+            System.out.println("--------Nhập vị trí nhân viên---------\n" +
+                    "\t1. Lễ tân \n" +
+                    "\t2. Phục vụ \n" +
+                    "\t3. Chuyên viên \n" +
+                    "\t4. Giám sát \n" +
+                    "\t5. Quản lý \n" +
+                    "\t6. Giám đốc \n" +
+                    "\tEnter: ");
+            int choice = Integer.parseInt(scanner.nextLine());
+            switch (choice) {
+                case 1:
+                    return "Lễ tân";
+                case 2:
+                    return "Phục Vụ";
+                case 3:
+                    return "Chuyên viên";
+                case 4:
+                    return "Giám Sát";
+                case 5:
+                    return "Quản lý";
+                case 6:
+                    return "Giám Đốc";
+                default:
+                    System.out.println("Nhập sai vui lòng nhập lại");
+            }
+        }
+    }
 }
