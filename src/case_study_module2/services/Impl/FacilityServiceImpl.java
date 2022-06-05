@@ -95,6 +95,7 @@ public class FacilityServiceImpl implements FacilityService {
         Villa villa = new Villa(id, name, area, price, people, rentStyle, standard, areaPool, floor);
         facilityMap.put(villa, 0);
         String line = "";
+        
         for (Map.Entry<Facility, Integer> element : facilityMap.entrySet()) {
             line += element.getKey().getInfo() + "," + element.getValue() + "\n";
         }
@@ -137,6 +138,7 @@ public class FacilityServiceImpl implements FacilityService {
 
         House house = new House(id, name, area, price, people, rentStyle, roomStandard, floor);
         facilityMap.put(house, 0);
+
         String line = "";
         for (Map.Entry<Facility, Integer> element : facilityMap.entrySet()) {
             line += element.getKey().getInfo() + "," + element.getValue() + "\n";
@@ -177,6 +179,7 @@ public class FacilityServiceImpl implements FacilityService {
 
         Room room = new Room(id, name, area, price, people, rentStyle, freeService);
         facilityMap.put(room, 0);
+
         String line = "";
         for (Map.Entry<Facility, Integer> element : facilityMap.entrySet()) {
             line += element.getKey().getInfo() + "," + element.getValue() + "\n";

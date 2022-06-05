@@ -88,9 +88,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 
                 System.out.println("Nhập lương");
                 int salary = Integer.parseInt(scanner.nextLine());
+
                 int id = idEdit;
+
                 Employee employee = new Employee(id, name, age, sex, idCard, email, level, position, salary);
                 employeeList.set(i, employee);
+
                 count++;
                 ReadAndWirte2.writeEmployee(EMPLOYEE_FILE_PATH, employeeList);
                 System.out.println("Sửa thành công");

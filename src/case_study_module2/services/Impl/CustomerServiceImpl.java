@@ -48,8 +48,10 @@ public class CustomerServiceImpl implements CustomerService {
 
         System.out.println("Nhập địa chỉ ");
         String address = scanner.nextLine();
+
         Customer customer = new Customer(id, name, age, sex, idCard, email, customerType, address);
         customerList.add(customer);
+
         ReadAndWirte2.writeCustomer(PATH_CUSTOMER, customerList);
         System.out.println("Đã thêm mới khách hàng thành công");
     }
@@ -82,10 +84,13 @@ public class CustomerServiceImpl implements CustomerService {
 
                 System.out.println("Nhập địa chỉ");
                 String address = scanner.nextLine();
+
                 int id = idEdit;
+
                 Customer customer = new Customer(id, name, age, sex, idCard, email, customerType, address);
                 customerList.set(i, customer);
                 count++;
+
                 ReadAndWirte2.writeCustomer(PATH_CUSTOMER, customerList);
                 System.out.println("Sửa thành công");
                 break;
