@@ -1,7 +1,6 @@
 package case_study_module2.models.faciity;
 
 import case_study_module2.comma.Comma;
-import case_study_module2.models.faciity.Facility;
 
 public class Villa extends Facility {
     private String standardVilla;
@@ -13,14 +12,15 @@ public class Villa extends Facility {
 
     @Override
     public String getInfo() {
-        return  super.getIdFacility()+ Comma.COMMA+
-                super.getNameService()+Comma.COMMA+
-                super.getAreaUse()+Comma.COMMA+
-                super.getRentalPeopleMax()+Comma.COMMA+
-                super.getStyleRental()+Comma.COMMA+
-                this.getStandardVilla()+Comma.COMMA+
-                this.getAreaPool()+Comma.COMMA+
-                this.getFloor()+Comma.COMMA+"\n";
+        return super.getIdFacility() + Comma.COMMA +
+                super.getNameService() + Comma.COMMA +
+                super.getAreaUse() + Comma.COMMA +
+                super.getRentalPrice() + Comma.COMMA +
+                super.getRentalPeopleMax() + Comma.COMMA +
+                super.getStyleRental() + Comma.COMMA +
+                this.getStandardVilla() + Comma.COMMA +
+                this.getAreaPool() + Comma.COMMA +
+                this.getFloor();
     }
 
     public Villa(String standardVilla, double areaPool, int floor) {
@@ -62,7 +62,7 @@ public class Villa extends Facility {
 
     @Override
     public String toString() {
-        return "Villa{" + super.toString()+
+        return "Villa{" + super.toString() +
                 "standardVilla='" + standardVilla + '\'' +
                 ", areaPool=" + areaPool +
                 ", floor=" + floor +

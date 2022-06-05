@@ -13,15 +13,15 @@ public class Employee extends Person {
 
     @Override
     public String getInfo() {
-        return super.getId()+ Comma.COMMA+
-                super.getName()+Comma.COMMA+
-                super.getAge()+Comma.COMMA+
-                super.getSex()+Comma.COMMA+
-                super.getIdCard()+Comma.COMMA+
-                super.getEmail()+Comma.COMMA+
-                this.getLevel()+Comma.COMMA+
-                this.getPosition()+Comma.COMMA+
-                this.getSalary()+Comma.COMMA+"\n";
+        return super.getId() + Comma.COMMA +
+                super.getName() + Comma.COMMA +
+                super.getAge() + Comma.COMMA +
+                super.getSex() + Comma.COMMA +
+                super.getIdCard() + Comma.COMMA +
+                super.getEmail() + Comma.COMMA +
+                this.getLevel() + Comma.COMMA +
+                this.getPosition() + Comma.COMMA +
+                this.getSalary() + Comma.COMMA + "\n";
     }
 
     public Employee(String level, String position, int salary) {
@@ -64,7 +64,7 @@ public class Employee extends Person {
     @Override
     public String toString() {
         return "Employee{" +
-                super.toString()+
+                super.toString() +
                 "level='" + level + '\'' +
                 ", position='" + position + '\'' +
                 ", salary=" + salary +

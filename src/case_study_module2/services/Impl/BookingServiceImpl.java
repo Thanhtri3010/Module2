@@ -1,11 +1,12 @@
 package case_study_module2.services.Impl;
 
 import case_study_module2.models.faciity.Facility;
-import case_study_module2.models.faciity.Villa;
 import case_study_module2.models.function.Booking;
 import case_study_module2.models.person.Customer;
 import case_study_module2.services.BookingService;
+import case_study_module2.services.exception.CheckException;
 import case_study_module2.utils.BookingComparator;
+import case_study_module2.utils.ReadAndWirte2;
 
 import java.util.*;
 
@@ -15,42 +16,38 @@ public class BookingServiceImpl implements BookingService {
     static Set<Booking> bookingSet = new TreeSet<>(new BookingComparator());
     static List<Customer> customerList = new ArrayList<>();
     static Map<Facility, Integer> facilityIntegerMap = new LinkedHashMap<>();
+    private static final String PATH_BOOKING = "src/case_study_module2/data/function/booking.csv";
 
-    static {
-        customerList.add(new Customer(1, "Tri", 25, "Male", "12345",
-                "tri@gmail.com", "Vip", "Đà Nẵng"));
-        customerList.add(new Customer(2, "Tuyền", 21, "FeMale", "123123",
-                "tuyen@gmail.com", "Vip", "Đà Nẵng"));
-        facilityIntegerMap.put(new Villa("1", "Villa 1", 200, 100,
-                10, "Day", "Vip", 15, 2), 0);
-        facilityIntegerMap.put(new Villa("2", "Villa 2", 300, 200,
-                10, "Day", "Normal", 15, 2), 0);
-    }
-
-    public Set<Booking> sendBooking(){
+    public Set<Booking> sendBooking() {
         return bookingSet;
     }
 
-    @Override
     public void displayBooking() {
-        for (Booking item: bookingSet) {
+        bookingSet = ReadAndWirte2.readBooking(PATH_BOOKING);
+        for (Booking item : bookingSet) {
             System.out.println(item.toString());
         }
     }
 
     @Override
-    public void addBooking() {
+    public void addNew() {
+        bookingSet.clear();
+        bookingSet = ReadAndWirte2.readBooking(PATH_BOOKING);
         int id = 1;
         if (!bookingSet.isEmpty()) {
             id = bookingSet.size();
         }
         Customer customer = chooseCustomer();
         Facility facility = choosefacility();
+
         System.out.println("Nhập ngày bắt đầu thuê: ");
         String starDate = scanner.nextLine();
+
         System.out.println("Nhập ngày trả phòng");
         String endDate = scanner.nextLine();
-        Booking booking = new Booking(id, starDate, endDate, customer, facility);
+
+        facilityIntegerMap.put(facility, facilityIntegerMap.get(facility) + 1);
+        Booking booking = new Booking(id, starDate, endDate, customer.getId(), facility.getIdFacility());
 
         bookingSet.add(booking);
         System.out.println("Đã booking thành công.");
@@ -59,11 +56,11 @@ public class BookingServiceImpl implements BookingService {
     public static Customer chooseCustomer() {
         System.out.println("Danh sách khách hàng");
         for (Customer item : customerList) {
-            System.out.println(item.toString());
+            System.out.println(item);
         }
         System.out.println("Nhập id khách hàng");
         boolean check = true;
-        int id = Integer.parseInt(scanner.nextLine());
+        int id = CheckException.checkparseInt();
         while (check) {
             for (Customer item : customerList) {
                 if (id == item.getId()) {
@@ -73,13 +70,14 @@ public class BookingServiceImpl implements BookingService {
             }
             if (check) {
                 System.out.println("Bạn đã nhập sai vui lòng nhập lại");
-                id = Integer.parseInt(scanner.nextLine());
+                id = CheckException.checkparseInt();
             }
         }
         return null;
     }
 
     public static Facility choosefacility() {
+        facilityIntegerMap.clear();
         System.out.println("Danh sách dịch vụ");
         for (Map.Entry<Facility, Integer> entry : facilityIntegerMap.entrySet()) {
             System.out.println(entry.getKey().toString());
@@ -102,18 +100,4 @@ public class BookingServiceImpl implements BookingService {
         return null;
     }
 
-    @Override
-    public void createConstracts() {
-
-    }
-
-    @Override
-    public void displayContracts() {
-
-    }
-
-    @Override
-    public void editContracts() {
-
-    }
 }

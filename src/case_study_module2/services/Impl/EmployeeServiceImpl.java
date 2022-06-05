@@ -3,7 +3,6 @@ package case_study_module2.services.Impl;
 import case_study_module2.models.person.Employee;
 import case_study_module2.services.EmployeeService;
 import case_study_module2.utils.ReadAndWirte2;
-import case_study_module2.utils.ReadAndWrite;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +37,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         int age = Integer.parseInt(scanner.nextLine());
 
         System.out.println("Nhập giới tính");
-        String sex = scanner.nextLine();
+        String sex = menuSex();
 
         System.out.println("Nhập chứng minh");
         String idCard = scanner.nextLine();
@@ -75,7 +74,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                 int age = Integer.parseInt(scanner.nextLine());
 
                 System.out.println("Nhập giới tính");
-                String sex = scanner.nextLine();
+                String sex = menuSex();
 
                 System.out.println("Nhập chứng minh");
                 String idCard = scanner.nextLine();
@@ -151,6 +150,27 @@ public class EmployeeServiceImpl implements EmployeeService {
                     return "Quản lý";
                 case 6:
                     return "Giám Đốc";
+                default:
+                    System.out.println("Nhập sai vui lòng nhập lại");
+            }
+        }
+    }
+
+    public String menuSex() {
+        while (true) {
+            System.out.println("--------Nhập giới tính---------\n" +
+                    "\t1. Nam \n" +
+                    "\t2. Nữ \n" +
+                    "\t3. Giới tính thứ 3 \n" +
+                    "\tEnter: ");
+            int choice = Integer.parseInt(scanner.nextLine());
+            switch (choice) {
+                case 1:
+                    return "Nam";
+                case 2:
+                    return "Nữ";
+                case 3:
+                    return "Giới tính thứ 3";
                 default:
                     System.out.println("Nhập sai vui lòng nhập lại");
             }

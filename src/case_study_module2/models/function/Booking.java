@@ -1,24 +1,24 @@
 package case_study_module2.models.function;
 
-import case_study_module2.models.faciity.Facility;
-import case_study_module2.models.person.Customer;
+
+import case_study_module2.comma.Comma;
 
 public class Booking {
     private int idBooking;
     private String starDate;
     private String endDate;
-    private Customer customer;
-    private Facility facility;
+    private int customerCode;
+    private String serviceCode;
 
     public Booking() {
     }
 
-    public Booking(int idBooking, String starDate, String endDate, Customer customer, Facility facility) {
+    public Booking(int idBooking, String starDate, String endDate, int customerCode, String serviceCode) {
         this.idBooking = idBooking;
         this.starDate = starDate;
         this.endDate = endDate;
-        this.customer = customer;
-        this.facility = facility;
+        this.customerCode = customerCode;
+        this.serviceCode = serviceCode;
     }
 
     public int getIdBooking() {
@@ -45,20 +45,28 @@ public class Booking {
         this.endDate = endDate;
     }
 
-    public Customer getCustomer() {
-        return customer;
+    public int getCustomerCode() {
+        return customerCode;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public void setCustomerCode(Integer customerCode) {
+        this.customerCode = customerCode;
     }
 
-    public Facility getFacility() {
-        return facility;
+    public String getServiceCode() {
+        return serviceCode;
     }
 
-    public void setFacility(Facility facility) {
-        this.facility = facility;
+    public void setServiceCode(String serviceCode) {
+        this.serviceCode = serviceCode;
+    }
+
+    public String getInFo() {
+        return this.getIdBooking() + Comma.COMMA +
+                this.getStarDate() + Comma.COMMA +
+                this.getEndDate() + Comma.COMMA +
+                this.getCustomerCode() + Comma.COMMA +
+                this.getServiceCode();
     }
 
     @Override
@@ -67,8 +75,8 @@ public class Booking {
                 "idBooking=" + idBooking +
                 ", starDate='" + starDate + '\'' +
                 ", endDate='" + endDate + '\'' +
-                ", customer=" + customer +
-                ", facility=" + facility +
+                ", customerCode=" + customerCode +
+                ", serviceCode='" + serviceCode + '\'' +
                 '}';
     }
 }

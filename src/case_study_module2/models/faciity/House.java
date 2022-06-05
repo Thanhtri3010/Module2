@@ -1,7 +1,6 @@
 package case_study_module2.models.faciity;
 
 import case_study_module2.comma.Comma;
-import case_study_module2.models.faciity.Facility;
 
 public class House extends Facility {
     private String roomStandard;
@@ -12,13 +11,14 @@ public class House extends Facility {
 
     @Override
     public String getInfo() {
-        return super.getIdFacility()+ Comma.COMMA+
-                super.getNameService()+Comma.COMMA+
-                super.getAreaUse()+Comma.COMMA+
-                super.getRentalPeopleMax()+Comma.COMMA+
-                super.getStyleRental()+Comma.COMMA+
-                this.getRoomStandard()+Comma.COMMA+
-                this.getNumberOfFloors()+Comma.COMMA+"\n";
+        return super.getIdFacility() + Comma.COMMA +
+                super.getNameService() + Comma.COMMA +
+                super.getAreaUse() + Comma.COMMA +
+                super.getRentalPrice() + Comma.COMMA +
+                super.getRentalPeopleMax() + Comma.COMMA +
+                super.getStyleRental() + Comma.COMMA +
+                this.getRoomStandard() + Comma.COMMA +
+                this.getNumberOfFloors();
     }
 
     public House(String roomStandard, int numberOfFloors) {

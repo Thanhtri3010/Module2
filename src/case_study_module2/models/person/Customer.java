@@ -11,14 +11,14 @@ public class Customer extends Person {
 
     @Override
     public String getInfo() {
-        return super.getId()+ Comma.COMMA+
-                super.getName()+ Comma.COMMA+
-                super.getAge()+ Comma.COMMA+
-                super.getSex()+ Comma.COMMA+
-                super.getIdCard()+ Comma.COMMA+
-                super.getEmail()+ Comma.COMMA+
-                this.getTypeCustomer()+ Comma.COMMA+
-                this.getAddress()+ Comma.COMMA+"\n";
+        return super.getId() + Comma.COMMA +
+                super.getName() + Comma.COMMA +
+                super.getAge() + Comma.COMMA +
+                super.getSex() + Comma.COMMA +
+                super.getIdCard() + Comma.COMMA +
+                super.getEmail() + Comma.COMMA +
+                this.getTypeCustomer() + Comma.COMMA +
+                this.getAddress() + Comma.COMMA + "\n";
     }
 
     public Customer(String typeCustomer, String address) {
