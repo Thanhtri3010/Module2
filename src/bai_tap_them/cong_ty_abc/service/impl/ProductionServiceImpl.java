@@ -28,9 +28,15 @@ public class ProductionServiceImpl implements ProductionService {
         productionStaffList.clear();
         productionStaffList = ReadAndWirte.readProduction(PATH_PRODUCTION);
 
-        System.out.println("Nhập id");
-        String id = scanner.nextLine();
+        int id = 0;
 
+        if (productionStaffList.isEmpty()) {
+            id = 1;
+        } else {
+            for (ProductionStaff item : productionStaffList) {
+                id = item.getId() + 1;
+            }
+        }
         System.out.println("Nhập mã nhân viên");
         String employeeCode = scanner.nextLine();
 

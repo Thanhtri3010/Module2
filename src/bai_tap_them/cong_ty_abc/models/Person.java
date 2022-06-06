@@ -1,7 +1,7 @@
 package bai_tap_them.cong_ty_abc.models;
 
 public abstract class Person {
-    private String id;
+    private int id;
     private String employeeCode;
     private String name;
     private String age;
@@ -10,7 +10,7 @@ public abstract class Person {
     public Person() {
     }
 
-    public Person(String id, String employeeCode, String name, String age, String address) {
+    public Person(int id, String employeeCode, String name, String age, String address) {
         this.id = id;
         this.name = name;
         this.employeeCode = employeeCode;
@@ -18,11 +18,11 @@ public abstract class Person {
         this.address = address;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

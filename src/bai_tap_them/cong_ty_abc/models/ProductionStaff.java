@@ -25,7 +25,7 @@ public class ProductionStaff extends Person {
         this.productPrice = productPrice;
     }
 
-    public ProductionStaff(String id, String employeeCode, String name, String age, String address, int productNumber, int productPrice) {
+    public ProductionStaff(int id, String employeeCode, String name, String age, String address, int productNumber, int productPrice) {
         super(id, employeeCode, name, age, address);
         this.productNumber = productNumber;
         this.productPrice = productPrice;

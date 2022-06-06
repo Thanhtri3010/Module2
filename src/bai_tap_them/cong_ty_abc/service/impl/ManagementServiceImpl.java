@@ -28,8 +28,15 @@ public class ManagementServiceImpl implements ManagementService {
         managementStaffList.clear();
         managementStaffList = ReadAndWirte.readManagementStaff(PATH_MANAGEMENT);
 
-        System.out.println("Nhập id");
-        String id = scanner.nextLine();
+        int id = 0;
+
+        if (managementStaffList.isEmpty()) {
+            id = 1;
+        } else {
+            for (ManagementStaff item : managementStaffList) {
+                id = item.getId() + 1;
+            }
+        }
 
         System.out.println("Nhập mã nhân viên");
         String employeeCode = scanner.nextLine();

@@ -25,7 +25,7 @@ public class ManagementStaff extends Person {
         this.coefficientsSalary = coefficientsSalary;
     }
 
-    public ManagementStaff(String id, String employeeCode, String name, String age, String address, int basicSalary, int coefficientsSalary) {
+    public ManagementStaff(int id, String employeeCode, String name, String age, String address, int basicSalary, int coefficientsSalary) {
         super(id, employeeCode, name, age, address);
         this.basicSalary = basicSalary;
         this.coefficientsSalary = coefficientsSalary;
