@@ -3,8 +3,8 @@ package bai_tap_them.cong_ty_abc.models;
 import bai_tap_them.cong_ty_abc.comma.Comma;
 
 public class ProductionStaff extends Person {
-    private int productNumber;
-    public int productPrice;
+    private double productNumber;
+    public double productPrice;
 
     public ProductionStaff() {
     }
@@ -20,22 +20,22 @@ public class ProductionStaff extends Person {
                 this.getProductPrice();
     }
 
-    public ProductionStaff(int productNumber, int productPrice) {
+    public ProductionStaff(double productNumber, double productPrice) {
         this.productNumber = productNumber;
         this.productPrice = productPrice;
     }
 
-    public ProductionStaff(int id, String employeeCode, String name, String age, String address, int productNumber, int productPrice) {
+    public ProductionStaff(int id, String employeeCode, String name, String age, String address, double productNumber, double productPrice) {
         super(id, employeeCode, name, age, address);
         this.productNumber = productNumber;
         this.productPrice = productPrice;
     }
 
-    public int getProductNumber() {
+    public double getProductNumber() {
         return productNumber;
     }
 
-    public void setProductNumber(int productNumber) {
+    public void setProductNumber(double productNumber) {
         this.productNumber = productNumber;
     }
 
@@ -43,7 +43,7 @@ public class ProductionStaff extends Person {
         return productPrice;
     }
 
-    public void setProductPrice(int productPrice) {
+    public void setProductPrice(double productPrice) {
         this.productPrice = productPrice;
     }
 

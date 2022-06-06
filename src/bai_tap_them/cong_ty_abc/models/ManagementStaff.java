@@ -3,8 +3,8 @@ package bai_tap_them.cong_ty_abc.models;
 import bai_tap_them.cong_ty_abc.comma.Comma;
 
 public class ManagementStaff extends Person {
-    private int basicSalary;
-    private int coefficientsSalary;
+    private double basicSalary;
+    private double coefficientsSalary;
 
     public ManagementStaff() {
     }
@@ -20,12 +20,12 @@ public class ManagementStaff extends Person {
                 this.getCoefficientsSalary();
     }
 
-    public ManagementStaff(int basicSalary, int coefficientsSalary) {
+    public ManagementStaff(double basicSalary, double coefficientsSalary) {
         this.basicSalary = basicSalary;
         this.coefficientsSalary = coefficientsSalary;
     }
 
-    public ManagementStaff(int id, String employeeCode, String name, String age, String address, int basicSalary, int coefficientsSalary) {
+    public ManagementStaff(int id, String employeeCode, String name, String age, String address, double basicSalary, double coefficientsSalary) {
         super(id, employeeCode, name, age, address);
         this.basicSalary = basicSalary;
         this.coefficientsSalary = coefficientsSalary;
@@ -35,7 +35,7 @@ public class ManagementStaff extends Person {
         return basicSalary;
     }
 
-    public void setBasicSalary(int basicSalary) {
+    public void setBasicSalary(double basicSalary) {
         this.basicSalary = basicSalary;
     }
 
@@ -43,7 +43,7 @@ public class ManagementStaff extends Person {
         return coefficientsSalary;
     }
 
-    public void setCoefficientsSalary(int coefficientsSalary) {
+    public void setCoefficientsSalary(double coefficientsSalary) {
         this.coefficientsSalary = coefficientsSalary;
     }
 

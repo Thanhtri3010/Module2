@@ -51,10 +51,10 @@ public class ProductionServiceImpl implements ProductionService {
         String address = scanner.nextLine();
 
         System.out.println("Nhập số sản phẩm");
-        int productNumber = Regex.regexpositiveNumber();
+        double productNumber = Regex.regexpositiveNumber();
 
         System.out.println("Nhập giá sản phẩm");
-        int productPrice = Regex.regexpositiveNumber();
+        double productPrice = Regex.regexpositiveNumber();
 
         ProductionStaff productionStaff = new ProductionStaff(id, employeeCode, name, age, address, productNumber, productPrice);
         productionStaffList.add(productionStaff);

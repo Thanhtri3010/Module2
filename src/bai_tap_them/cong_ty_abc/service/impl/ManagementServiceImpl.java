@@ -52,10 +52,10 @@ public class ManagementServiceImpl implements ManagementService {
         String address = scanner.nextLine();
 
         System.out.println("nhập lương cơ bản");
-        int basicSalary = Regex.regexpositiveNumber();
+        double basicSalary = Regex.regexpositiveNumber();
 
         System.out.println("Nhập hệ số lương");
-        int coefficientsSalary = Regex.regexpositiveNumber();
+        double coefficientsSalary = Regex.regexpositiveNumber();
 
         ManagementStaff managementStaff = new ManagementStaff(id, employeeCode, name, age, address, basicSalary, coefficientsSalary);
         managementStaffList.add(managementStaff);

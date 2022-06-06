@@ -63,7 +63,7 @@ public class ReadAndWirte {
         String[] item = null;
         for (String str : list) {
             item = str.split(",");
-            managementStaffList.add(new ManagementStaff(Integer.parseInt(item[0]),item[1],item[2],item[3],item[4],Integer.parseInt(item[5]),Integer.parseInt(item[6])));
+            managementStaffList.add(new ManagementStaff(Integer.parseInt(item[0]),item[1],item[2],item[3],item[4],Double.parseDouble(item[5]),Double.parseDouble(item[6])));
         }
         return managementStaffList;
     }
@@ -74,7 +74,7 @@ public class ReadAndWirte {
         String[] item = null;
         for (String str : list) {
             item = str.split(",");
-            productionStaffList.add(new ProductionStaff(Integer.parseInt(item[0]),item[1],item[2],item[3],item[4],Integer.parseInt(item[5]),Integer.parseInt(item[6])));
+            productionStaffList.add(new ProductionStaff(Integer.parseInt(item[0]),item[1],item[2],item[3],item[4],Double.parseDouble(item[5]),Double.parseDouble(item[6])));
         }
         return productionStaffList;
     }
