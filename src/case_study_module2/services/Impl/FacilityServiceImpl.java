@@ -95,7 +95,7 @@ public class FacilityServiceImpl implements FacilityService {
         Villa villa = new Villa(id, name, area, price, people, rentStyle, standard, areaPool, floor);
         facilityMap.put(villa, 0);
         String line = "";
-        
+
         for (Map.Entry<Facility, Integer> element : facilityMap.entrySet()) {
             line += element.getKey().getInfo() + "," + element.getValue() + "\n";
         }
