@@ -1,14 +1,13 @@
-package bai_tap_them.cong_ty_abc.utils;
+package bai_tap_them.school.utils;
 
-import bai_tap_them.cong_ty_abc.models.ManagementStaff;
-import bai_tap_them.cong_ty_abc.models.Person;
-import bai_tap_them.cong_ty_abc.models.ProductionStaff;
+import bai_tap_them.school.models.Student;
+import bai_tap_them.school.models.Teacher;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReadAndWirte {
+public class ReadAndWriteFile {
     public static void writeFile(String pathFile, List<String> list) {
         File file = new File(pathFile);
         try (
@@ -24,25 +23,17 @@ public class ReadAndWirte {
         }
     }
 
-    public static void writeManagementStaff(String pathFile, List<ManagementStaff> managementStaffs) {
+    public static void writeStudent(String pathFile, List<Student> student) {
         List<String> list = new ArrayList<>();
-        for (ManagementStaff item : managementStaffs) {
+        for (Student item : student) {
             list.add(item.getInfo());
         }
         writeFile(pathFile, list);
     }
 
-    public static void writeProduction(String pathFile, List<ProductionStaff> productionStaffs) {
+    public static void writeTeacher(String pathFile, List<Teacher> teachers) {
         List<String> list = new ArrayList<>();
-        for (ProductionStaff item : productionStaffs) {
-            list.add(item.getInfo());
-        }
-        writeFile(pathFile, list);
-    }
-
-    public static void writeStaff(String pathFile, List<Person> personList) {
-        List<String> list = new ArrayList<>();
-        for (Person item : personList) {
+        for (Teacher item : teachers) {
             list.add(item.getInfo());
         }
         writeFile(pathFile, list);
@@ -66,25 +57,25 @@ public class ReadAndWirte {
         return list;
     }
 
-    public static List<ManagementStaff> readManagementStaff(String pathFile) {
+    public static List<Student> readStudent(String pathFile) {
         List<String> list = readFile(pathFile);
-        List<ManagementStaff> managementStaffList = new ArrayList<>();
+        List<Student> studentsList = new ArrayList<>();
         String[] item = null;
         for (String str : list) {
             item = str.split(",");
-            managementStaffList.add(new ManagementStaff(Integer.parseInt(item[0]), item[1], item[2], item[3], item[4], Double.parseDouble(item[5]), Double.parseDouble(item[6])));
+            studentsList.add(new Student(Integer.parseInt(item[0]), item[1], item[2], item[3], item[4], item[5], Double.parseDouble(item[6])));
         }
-        return managementStaffList;
+        return studentsList;
     }
 
-    public static List<ProductionStaff> readProduction(String pathFile) {
+    public static List<Teacher> readTeacher(String pathFile) {
         List<String> list = readFile(pathFile);
-        List<ProductionStaff> productionStaffList = new ArrayList<>();
+        List<Teacher> teachersList = new ArrayList<>();
         String[] item = null;
         for (String str : list) {
             item = str.split(",");
-            productionStaffList.add(new ProductionStaff(Integer.parseInt(item[0]), item[1], item[2], item[3], item[4], Double.parseDouble(item[5]), Double.parseDouble(item[6])));
+            teachersList.add(new Teacher(Integer.parseInt(item[0]), item[1], item[2], item[3], item[4], Double.parseDouble(item[5]), Double.parseDouble(item[6])));
         }
-        return productionStaffList;
+        return teachersList;
     }
 }

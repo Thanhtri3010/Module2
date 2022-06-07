@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class ProductionServiceImpl implements ProductionService {
     private static List<ProductionStaff> productionStaffList = new ArrayList<>();
     private Scanner scanner = new Scanner(System.in);
-    private static final String PATH_PRODUCTION = "src/bai_tap_them/cong_ty_abc/data/production.csv";
+    private static final String PATH_PRODUCTION = "src/bai_tap_them/cong_ty_abc/data/employee.csv";
 
     @Override
     public void display() {
@@ -28,14 +28,9 @@ public class ProductionServiceImpl implements ProductionService {
         productionStaffList.clear();
         productionStaffList = ReadAndWirte.readProduction(PATH_PRODUCTION);
 
-        int id = 0;
-
-        if (productionStaffList.isEmpty()) {
-            id = 1;
-        } else {
-            for (ProductionStaff item : productionStaffList) {
-                id = item.getId() + 1;
-            }
+        int id = 1;
+        if (!productionStaffList.isEmpty()) {
+            id = productionStaffList.size() + 1;
         }
         System.out.println("Nhập mã nhân viên");
         String employeeCode = scanner.nextLine();
@@ -64,8 +59,27 @@ public class ProductionServiceImpl implements ProductionService {
 
     @Override
     public void delete() {
+        productionStaffList.clear();
+        productionStaffList = ReadAndWirte.readProduction(PATH_PRODUCTION);
+        System.out.print("Nhập id bạn muốn xoá: ");
+        String delete = scanner.nextLine();
+        boolean flag = true;
+        for (int i = 0; i < productionStaffList.size(); i++) {
+            if (delete.equals(productionStaffList.get(i).getEmployeeCode())) {
+                productionStaffList.remove(i);
+                System.out.println("Đã xoá thành công!!");
+                flag = false;
+                break;
+            }
+        }
+        if (flag) {
+            System.out.println("mã không tồn tại !!");
+        }
+        ReadAndWirte.writeProduction(PATH_PRODUCTION, productionStaffList);
 
     }
+
+
 
     @Override
     public void search() {

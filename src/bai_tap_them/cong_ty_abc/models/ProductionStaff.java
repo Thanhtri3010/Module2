@@ -16,7 +16,7 @@ public class ProductionStaff extends Person {
                 super.getName() + Comma.COMMA +
                 super.getAge() + Comma.COMMA +
                 super.getAddress() + Comma.COMMA +
-                this.getProductPrice() + Comma.COMMA +
+                this.getProductNumber() + Comma.COMMA +
                 this.getProductPrice();
     }
 

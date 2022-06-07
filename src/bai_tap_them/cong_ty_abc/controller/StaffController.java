@@ -110,7 +110,8 @@ public class StaffController {
     public static void delete() {
         while (true) {
             System.out.println("1. Xoá nhân quản lý\n" +
-                    "2. Xoá nhân viên sản xuất\n");
+                    "2. Xoá nhân viên sản xuất\n"+
+                    "3.Quay trở lại menu chính");
             int choice = CheckException.checkparseInt();
             switch (choice) {
                 case 1:
@@ -119,6 +120,8 @@ public class StaffController {
                 case 2:
                     productionService.delete();
                     break;
+                case 3:
+                    return;
                 default:
                     System.out.println("nhập không đúng vui lòng nhập lại");
             }
